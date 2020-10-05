@@ -1,0 +1,29 @@
+page-help {
+  .header-md::after {
+    background-image: none !important
+  }
+
+  .toolbar-background.toolbar-background-md {
+    background: #f8f8f800 !important;
+  }
+
+  .para-text {
+    padding: 2px;
+    text-align: left;
+    font-size: 1.4rem;
+  }
+
+  .contact-form {
+    display: block;
+    margin: auto;
+    margin-top: 30pt !important;
+  }
+
+  .item-input .label-md {
+    color: black !important;
+  }
+
+  .item-md.item-block .item-inner {
+    border-bottom: 2px solid #cacaca;
+  }
+}

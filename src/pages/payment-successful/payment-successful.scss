@@ -1,0 +1,49 @@
+page-payment-successful {
+  .header-md::after {
+    background-image: none !important
+  }
+
+  .toolbar-background.toolbar-background-md {
+    background: #f8f8f800 !important;
+  }
+
+  hr.solid {
+    border-top: 1px solid #bbb;
+  }
+
+  .card-img {
+    float: right;
+    font-size: 5rem;
+    margin-top: 10pt;
+    margin-right: 5pt;
+  }
+
+  .img-group {
+    display: block;
+    margin: auto;
+    width: 60%;
+    margin-top: 20pt;
+  }
+
+  .text-payment {
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  .text-label{
+    float: right;
+  }
+
+  .id-label{
+    float: right;
+    margin-top:-5px !important
+  }
+
+  .done-button{
+    display: block;
+    margin: 30pt auto;
+  }
+  .toolbar-title-md {
+    margin-right: 0 !important;
+  }
+}

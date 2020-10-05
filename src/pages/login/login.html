@@ -1,0 +1,91 @@
+<ion-content>
+  <div class="top_img">
+    <img src="assets/img/Splash Page1.png">
+  </div>
+
+  <div padding>
+    <ion-segment [(ngModel)]="userDetails" color="primary" (ionChange)="segmentChanged($event)" margin-top>
+      <ion-segment-button class="text-pink my-class background-purple medium-text btn text-transfrom" value="friends">
+        Sign In
+      </ion-segment-button>
+      <ion-segment-button class="text-pink new-class background-purple medium-text btn text-transfrom" value="enemies">
+        Sign Up
+      </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="userDetails">
+      <ion-list *ngSwitchCase="'friends'">
+        <ion-item style="width: 90%;" margin-left margin-top>
+          <ion-label floating>
+            <ion-icon class="left-icon" name="ios-person-outline"></ion-icon><span margin-left>Username</span>
+          </ion-label>
+          <ion-input class='auto-location full-input' type="text"></ion-input>
+        </ion-item>
+
+        <ion-item style="width: 90%;" margin-left margin-top>
+          <ion-label floating>
+            <ion-icon class="left-icon" name="ios-key-outline"></ion-icon><span margin-left>Password</span>
+          </ion-label>assets
+          <ion-input class='auto-location full-input' type="password"></ion-input>
+        </ion-item>
+
+        <ion-label style="text-align: end;margin-right: 16px;" class="text-grey bold-font" (click)="openForgotPassord()">
+          Forgot
+          Password</ion-label>
+        <button class="text-white text-transfrom signin-btn" padding ion-button round (click)="openSignin()"
+                style="width: 40%;">Sign In
+        </button>
+        <ion-label class="text-grey" style="text-align: center;font-style: oblique;">Sign in with</ion-label>
+
+        <div class="row icon" style="margin: auto;">
+          <img src="assets/img/Group 1252.png">
+          <img src="assets/img/Group 1254.png">
+        </div>
+      </ion-list>
+    </div>
+
+    <div [ngSwitch]="userDetails">
+      <ion-list *ngSwitchCase="'enemies'">
+        <ion-item style="width: 90%;" margin-left margin-top>
+          <ion-label floating>
+            <ion-icon class="left-icon" name="ios-person-outline"></ion-icon><span margin-left>First Name</span>
+          </ion-label>
+          <ion-input class='auto-location full-input' type="text"></ion-input>
+        </ion-item>
+
+        <ion-item style="width: 90%;" margin-left margin-top>
+          <ion-label floating>
+            <ion-icon class="left-icon" name="ios-person-outline"></ion-icon><span margin-left>Create a Username</span>
+          </ion-label>
+          <ion-input class='auto-location full-input' type="text"></ion-input>
+        </ion-item>
+
+        <ion-item style="width: 90%;" margin-left margin-top>
+          <ion-label floating>
+            <ion-icon class="left-icon" name="ios-key-outline"></ion-icon><span margin-left>Password</span>
+          </ion-label>
+          <ion-input class='auto-location full-input' type="password"></ion-input>
+        </ion-item>
+
+        <ion-item style="width: 90%;" margin-left margin-top>
+          <ion-label floating>
+            <ion-icon class="left-icon" name="ios-key-outline"></ion-icon><span margin-left>Confirm Password</span>
+          </ion-label>
+          <ion-input class='auto-location full-input' type="password"></ion-input>
+        </ion-item>
+
+
+        <button class="text-white signin-btn" padding ion-button round margin-top (click)="openSignup()"
+                style="width: 40%;">Sign Up
+        </button>
+        <ion-label class="text-grey" style="text-align: center;font-style: oblique;">Sign in with</ion-label>
+
+        <div class="row icon" style="margin: auto;">
+          <img src="assets/img/Group 1252.png">
+          <img src="assets/img/Group 1254.png">
+        </div>
+      </ion-list>
+    </div>
+  </div>
+
+</ion-content>

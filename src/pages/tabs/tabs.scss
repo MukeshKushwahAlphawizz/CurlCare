@@ -1,0 +1,198 @@
+page-tabs {
+  .has-icon .tab-button-icon, .has-title .tab-button-text{
+    margin: 0 !important;
+    font-size: 1rem;
+  }
+  /*.ion-md-profile {
+    content: url('../../assets/img/profile.png');
+    width: 25px !important;
+    margin-top: 5px !important;
+  }
+
+  .ion-md-beauty {
+    content: url('../../assets/img/beauty.png');
+    width: 35px;
+    margin-top: 10px !important;
+  }
+
+  .ion-md-track {
+    content: url('../../assets/img/woman.png');
+    width: 35px;
+    margin-top: 10px !important;
+  }
+
+  .ion-md-product {
+    content: url('../../assets/img/product.png');
+    width: 35px;
+    margin-top: -10px !important;
+  }
+
+  .ion-md-list {
+    content: url('../../assets/img/list.png');
+    width: 30px;
+    margin-top: 10px !important;
+  }*/
+
+
+  .tabbar, .tabs-ios, .tabs-md {
+    .tab-button-icon {
+      background-repeat:no-repeat;
+      background-position:center;
+      height:37px;
+      width:37px;
+      &:before {
+        display:none;
+      }
+    }
+  }
+
+  .tabs-ios {
+    a[aria-selected=false]{
+      .tab-button-icon[ng-reflect-name=one], .tab-button-icon[aria-label=one] {
+        background-image: url('../assets/imgs/user.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+      .tab-button-icon[ng-reflect-name=two], .tab-button-icon[aria-label=two] {
+        background-image: url('../assets/imgs/hair-washing.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+      .tab-button-icon[ng-reflect-name=three], .tab-button-icon[aria-label=three] {
+        background-image: url('../assets/imgs/draft.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+      .tab-button-icon[ng-reflect-name=four], .tab-button-icon[aria-label=four] {
+        background-image: url('../assets/imgs/package.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+      .tab-button-icon[ng-reflect-name=five], .tab-button-icon[aria-label=five] {
+        background-image: url('../assets/imgs/list.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+    }
+
+    a[aria-selected=true] {
+
+      .tab-button-icon[ng-reflect-name=one], .tab-button-icon[aria-label=one] {
+        background-image: url('../assets/imgs/user1.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+      .tab-button-icon[ng-reflect-name=two], .tab-button-icon[aria-label=two] {
+        background-image: url('../assets/imgs/hair-washing1.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+      .tab-button-icon[ng-reflect-name=three], .tab-button-icon[aria-label=three] {
+        background-image: url('../assets/imgs/draft1.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+      .tab-button-icon[ng-reflect-name=four], .tab-button-icon[aria-label=four] {
+        background-image: url('../assets/imgs/package1.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+      .tab-button-icon[ng-reflect-name=five], .tab-button-icon[aria-label=five] {
+        background-image: url('../assets/imgs/list1.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+    }
+  }
+
+  .tabs-md {
+    a[aria-selected=false]{
+      .tab-button-icon[ng-reflect-name=one], .tab-button-icon[aria-label=one] {
+        background-image: url('../assets/imgs/user.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+      .tab-button-icon[ng-reflect-name=two], .tab-button-icon[aria-label=two] {
+        background-image: url('../assets/imgs/hair-washing.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+      .tab-button-icon[ng-reflect-name=three], .tab-button-icon[aria-label=three] {
+        background-image: url('../assets/imgs/draft.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+      .tab-button-icon[ng-reflect-name=four], .tab-button-icon[aria-label=four] {
+        background-image: url('../assets/imgs/package.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+      .tab-button-icon[ng-reflect-name=five], .tab-button-icon[aria-label=five] {
+        background-image: url('../assets/imgs/list.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+    }
+
+    a[aria-selected=true] {
+
+      .tab-button-icon[ng-reflect-name=one], .tab-button-icon[aria-label=one] {
+        background-image: url('../assets/imgs/user1.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+      .tab-button-icon[ng-reflect-name=two], .tab-button-icon[aria-label=two] {
+        background-image: url('../assets/imgs/hair-washing1.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+      .tab-button-icon[ng-reflect-name=three], .tab-button-icon[aria-label=three] {
+        background-image: url('../assets/imgs/draft1.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+      .tab-button-icon[ng-reflect-name=four], .tab-button-icon[aria-label=four] {
+        background-image: url('../assets/imgs/package1.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+      .tab-button-icon[ng-reflect-name=five], .tab-button-icon[aria-label=five] {
+        background-image: url('../assets/imgs/list1.png');
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+      }
+    }
+  }
+
+
+  /*.tab-feed-off {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    background-image: url('../assets/images/Add Screen/Home1.png');
+  }
+  .tab-search {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    background-image: url('../assets/images/Add Screen/Search1.png');
+  }
+  .tab-add {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    background-image: url('../assets/images/Home/Add1.png');
+  }
+  .tab-cases {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    background-image: url('../assets/images/Add Screen/Cases1.png');
+  }
+  .tab-profile {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    background-image: url('../assets/images/Add Screen/Profile1.png');
+  }*/
+}

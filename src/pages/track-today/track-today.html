@@ -1,0 +1,153 @@
+<ion-content padding>
+  <div margin-left margin-right margin-bottom>
+    <div class="row">
+      <ion-title text-center>August</ion-title>
+      <ion-icon class="share-top-right" name="md-share"></ion-icon>
+    </div>
+  </div>
+  <div margin-top margin-bottom>
+    <ion-slides slidesPerView="7">
+      <ion-slide *ngFor="let day of weekList">
+        <div class="medium-text" [ngClass]="day.isSelected?'text-purple':''">{{day.name.substring(0,1)}}</div>
+        <div margin-top style="padding-top: 3px" class="medium-text" [ngClass]="day.isSelected?'text-purple round':''">{{day.dayNum}}</div>
+      </ion-slide>
+    </ion-slides>
+    <div margin-top text-center class="small-text text-grey">{{getTodayDate()}}</div>
+  </div>
+
+  <div margin>
+    <div>
+      <img class="profile-img" src="../../assets/img/Ellipse 84.png">
+      <img class="edit-img" src="../../assets/img/Group 1360.png">
+    </div>
+
+    <ion-item no-padding>
+      <ion-label class="medium-text">Style</ion-label>
+      <ion-select class="medium-text">
+        <ion-option value="New">New</ion-option>
+        <ion-option value="Continued">Continued</ion-option>
+      </ion-select>
+      <ion-icon item-right class="down" name="ios-arrow-down"></ion-icon>
+    </ion-item>
+
+    <ion-item no-padding margin-top>
+      <ion-label class="medium-text">Wash Day *</ion-label>
+      <ion-select class="medium-text" [(ngModel)]="washday">
+        <ion-option value="Yes">Yes</ion-option>
+        <ion-option value="No">No</ion-option>
+      </ion-select>
+      <ion-icon item-right class="down" name="ios-arrow-down"></ion-icon>
+    </ion-item>
+
+    <ion-item no-padding margin-top>
+      <ion-label class="medium-text">Today's Style</ion-label>
+      <ion-select class="medium-text" [(ngModel)]="toadystyle">
+        <ion-option value="Afro">Afro</ion-option>
+        <ion-option value="m">old</ion-option>
+      </ion-select>
+      <ion-icon item-right class="down" name="ios-arrow-down"></ion-icon>
+    </ion-item>
+
+    <ion-item no-padding margin-top>
+      <ion-label class="medium-text">Today's Product *</ion-label>
+      <ion-select class="medium-text" [(ngModel)]="todayproduct">
+        <ion-option value="f">latest</ion-option>
+        <ion-option value="Bantu Knots">Bantu Knots</ion-option>
+        <ion-option value="Braids">Braids</ion-option>
+        <ion-option value="BraidsExtentions">Braids (with extensions)</ion-option>
+        <ion-option value="Braid-outs">Braid-outs</ion-option>
+        <ion-option value="Cornrows">Cornrows</ion-option>
+        <ion-option value="CornrowsExtentions">Cornrows (with extensions)</ion-option>
+        <ion-option value="Curling Rods">Curling Rods</ion-option>
+        <ion-option value="Finger Coils">Finger Coils</ion-option>
+        <ion-option value="Protective Style">Protective Style</ion-option>
+        <ion-option value="Roller Set">Roller Set</ion-option>
+        <ion-option value="Twists">Twists</ion-option>
+        <ion-option value="Twist-outs">Twist-outs</ion-option>
+        <ion-option value="Wash and go">Wash and go</ion-option>
+        <ion-option value="Other">Other</ion-option>
+      </ion-select>
+      <ion-icon item-right class="down" name="ios-arrow-down"></ion-icon>
+    </ion-item>
+
+    <!--<div class="row" padding-top margin-top>
+      <div class="medium-text">Love it?</div>
+      <div class="label-input">
+        <label style="margin-right: 30px;">Yes</label>
+        <ion-checkbox (click)="selectFeedback(true)" [(ngModel)]="yes"></ion-checkbox>
+        <label margin-left style="margin-right: 25px;">No</label>
+        <span class="no">
+        <ion-checkbox (click)="selectFeedback(false)" [(ngModel)]="!yes"></ion-checkbox>
+      </span>
+      </div>
+    </div>-->
+
+    <ion-item no-padding no-lines no-margin>
+      <div item-left class="medium-text">Love it?</div>
+      <div item-right class="row">
+        <span>
+          <ion-item no-padding no-lines>
+          <label item-left>Yes</label>
+          <ion-checkbox class="set-margin" (click)="selectFeedback(true)" [(ngModel)]="yes"></ion-checkbox>
+          </ion-item>
+        </span>
+        <span>
+          <ion-item no-padding no-lines>
+            <label item-left>No</label>
+            <ion-checkbox class="set-margin" (click)="selectFeedback(false)" [(ngModel)]="!yes"></ion-checkbox>
+          </ion-item>
+        </span>
+      </div>
+    </ion-item>
+    <div class="row" style="margin-top: 30pt">
+      <div col-6 style="padding-left: 0;padding-right: 10px">
+        <button class="text-pink small-text add-button" ion-button round full
+                (click)="addMoreProducts()"><span class="biggest-text" style="margin: -4px 5px 0 5px">+</span>Add More Products</button>
+      </div>
+      <div col-6 style="padding-right: 0">
+      <button class="text-pink small-text save-button" ion-button round full
+              (click)="showMore()">Save</button>
+      </div>
+    </div>
+
+    <div margin-top class="row medium-text">
+      <div col-3></div>
+      <div col-3 text-left>Oh, no!</div>
+      <div col-3 text-center>Meh..</div>
+      <div col-3 text-right>Yaaaas!</div>
+    </div>
+    <div *ngFor="let prop of propertyList">
+      <div *ngIf="prop.isShown" margin-top text-center class="row small-text">
+        <div col-2 text-left>{{prop.name}}</div>
+        <div col-2 *ngFor="let item of prop.property">
+          <ion-checkbox [(ngModel)]="item.isSelect" (click)="selectRating(item,prop.name)"></ion-checkbox>
+        </div>
+      </div>
+    </div>
+
+    <div margin-top margin-bottom *ngIf="isAddmore" class="row">
+      <div col-5>
+        <button class="text-pink small-text add-button" ion-button round full
+                (click)="addMore()"><span class="biggest-text" style="margin: -4px 5px 0 5px">+</span> Add More</button>
+      </div>
+      <div col-2></div>
+      <div col-5>
+        <button class="text-pink small-text add-button" ion-button round full>
+          <span class="biggest-text" style="margin: -4px 5px 0 5px">+</span>Notes</button>
+      </div>
+    </div>
+
+    <div margin-top margin-bottom *ngIf="!isAddmore" class="row">
+      <div col-5>
+        <button class="text-pink small-text add-button" ion-button round full
+                (click)="save()">Save</button>
+      </div>
+      <div col-2></div>
+      <div col-5>
+        <button class="text-pink small-text add-button" ion-button round full
+                (click)="addNotes()"><span class="biggest-text" style="margin: -4px 5px 0 5px">+</span> Notes</button>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

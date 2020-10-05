@@ -1,0 +1,23 @@
+page-profilepage-2 {
+  .img-profile{
+    height: 70pt;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .rating-count{
+    background: #F29529;color: white;
+    padding: 2pt 4pt;
+    margin-top: 4px;border-radius: 5px;
+  }
+  .ionic3-star-rating[_ngcontent-c0] .button[_ngcontent-c0]{
+    height: 12px !important;width: 12px !important;
+    margin: 0;
+    ion-icon{
+      font-size: 12px !important;
+      padding: 0;
+    }
+  }
+    
+}

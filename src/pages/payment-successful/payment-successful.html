@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar padding-top padding-bottom>
+    <ion-buttons padding no-margin left>
+    </ion-buttons>
+    <ion-title text-center>Payment Successful</ion-title>
+    <ion-buttons end>
+      <button padding ion-button icon-only>
+        <ion-icon class="share-top-right" name="md-share"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="row" padding>
+    <div col-8>
+      <ion-label>Money Paid to Salon Name Here</ion-label>
+      <ion-label style="font-size: 3.5rem;" class="input-amount">$28</ion-label>
+      <ion-label>25 Aug 2020 1:33 PM</ion-label>
+    </div>
+    <div col-4>
+      <img class="img-group" src="assets/img/Group 5158.png">
+      <div class="text-payment">payment done</div>
+    </div>
+  </div>
+  <hr class="solid">
+  <div class="row" padding>
+    <div col-6>
+      <ion-label>Form</ion-label>
+      <ion-label>Card Name</ion-label>
+      <ion-label>7869 69703 2570</ion-label>
+      <ion-label>Bank Name Here</ion-label>
+    </div>
+    <div col-6>
+      <ion-label class="text-label">Transaction Id</ion-label>
+      <ion-label class="id-label">#4895621ATGNKM752</ion-label>
+      <!--<img class="img-src" end src="../../assets/img/Icon awesome-credit-card.png">-->
+      <ion-icon end class="card-img" name="ios-card"></ion-icon>
+    </div>
+  </div>
+  <hr class="solid">
+
+  <button class="text-white done-button" ion-button round  (click)="paymentDone()" style="width: 40%;">Done</button>
+
+</ion-content>

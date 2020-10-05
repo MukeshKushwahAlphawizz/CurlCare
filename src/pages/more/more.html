@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar class="background-purple" padding>
+    <ion-buttons no-margin left>
+      <img class="user-img" src="assets/imgs/girl.png">
+    </ion-buttons>
+    <div margin-left class="big-text text-black">Hey Adelina</div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div padding>
+    <div class="bold-font big-text" margin>Account Management</div>
+    <div margin-left margin-top class="medium-text" (click)="changePassword()">Change Password</div>
+    <div margin-left margin-top class="medium-text">Add an Account</div>
+  </div>
+  <hr>
+    <div class="bold-font big-text" margin padding-left>Invite Friends</div>
+  <hr>
+  <div class="bold-font big-text" margin padding-left (click)="upgradeAccount()">Upgrade Your Curl Care to Select</div>
+  <div margin padding-left class="medium-text" (click)="upgradeAccount()">Get Curl Care Select</div>
+  <hr>
+  <div class="bold-font big-text" margin padding-left>Settings</div>
+  <ion-item no-lines>
+    <ion-label style="margin-left:16px;">Push Notifications</ion-label>
+    <ion-toggle></ion-toggle>
+  </ion-item>
+  <div margin-left margin-bottom padding-left class="medium-text" (click)="privacyPolicy()">Privacy, Terms & Conditions</div>
+  <hr>
+  <div class="bold-font big-text" margin padding-left (click)="help()">Help</div>
+  <hr>
+  <div class="bold-font big-text" margin padding-left>Contact Us</div>
+  <div class="row">
+    <div margin-left margin-bottom padding-left class="medium-text">Email Us</div>
+    <div class="medium-text text-mail">dummy@gmail.com</div>
+  </div>
+  <div style="margin-bottom: 30pt" margin-left padding-left class="medium-text" (click)="aboutCurlCare()">About Curl Care</div>
+
+</ion-content>

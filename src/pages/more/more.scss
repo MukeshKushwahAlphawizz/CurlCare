@@ -1,0 +1,22 @@
+page-more {
+  .user-img{
+    height: 50pt;
+    width: 50pt;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .toolbar-background {
+    background-color: #f579af;
+  }
+
+  .medium-text.text-mail {
+    position: absolute;
+    right: 16px;
+    margin-top: 5px;
+  }
+
+  .toggle.toggle-checked .toggle-icon{
+    background-color: #f579af;
+  }
+
+}

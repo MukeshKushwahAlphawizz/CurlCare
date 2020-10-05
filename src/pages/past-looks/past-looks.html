@@ -1,0 +1,52 @@
+<ion-content>
+  <ion-navbar>
+    <ion-buttons no-margin left>
+      <button no-margin ion-button>
+        <img class="header-img" src="assets/img/icon.png">
+      </button>
+    </ion-buttons>
+    <ion-title text-center>Hey Adelina</ion-title>
+    <ion-buttons end>
+      <button padding ion-button icon-only>
+        <ion-icon class="share-top-right" name="md-share"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <div margin-top>
+    <img class="profile-img" src="../../assets/img/Ellipse 84.png">
+    <img class="edit-img" src="../../assets/img/Group 1360.png">
+  </div>
+  <div class="big-text" text-center>My Looks</div>
+  <div text-center class="row" margin-left margin-right>
+    <span col-4>
+      <div class="share-icon"><ion-icon class="share text-pink" name="md-share"></ion-icon></div>
+      <img class="my-look" src="assets/imgs/past-look1.png">
+    </span>
+    <span col-4>
+      <div class="share-icon"><ion-icon class="share text-pink" name="md-share"></ion-icon></div>
+      <img class="my-look" src="assets/imgs/past-look2.png">
+    </span>
+    <span col-4>
+      <div class="share-icon"><ion-icon class="share text-pink" name="md-share"></ion-icon></div>
+      <img class="my-look" src="assets/imgs/past-look3.png">
+    </span>
+  </div>
+  <div *ngIf="showMoredata" text-center class="row" margin-left margin-right>
+    <span col-4>
+      <div class="share-icon"><ion-icon class="share text-pink" name="md-share"></ion-icon></div>
+      <img class="my-look" src="assets/imgs/past-look1.png">
+    </span>
+    <span col-4>
+      <div class="share-icon"><ion-icon class="share text-pink" name="md-share"></ion-icon></div>
+      <img class="my-look" src="assets/imgs/past-look2.png">
+    </span>
+    <span col-4>
+      <div class="share-icon"><ion-icon class="share text-pink" name="md-share"></ion-icon></div>
+      <img class="my-look" src="assets/imgs/past-look3.png">
+    </span>
+  </div>
+
+  <div text-center class="showmore-div"><button ion-button round (click)="showMore()" *ngIf="showButton">Show More</button></div>
+
+
+</ion-content>

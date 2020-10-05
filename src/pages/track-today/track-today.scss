@@ -1,0 +1,105 @@
+page-track-today {
+  .profile-img {
+    display: block;
+    margin: auto;
+  }
+
+  .edit-img {
+    position: relative;
+    display: block;
+    margin: auto;
+    top: -55px;
+    left: 40px;
+  }
+
+  .label-input {
+    position: absolute;
+    right: 30px;
+  }
+
+
+  .button {
+    background-color: white !important;
+    border: 1px solid #f579af;
+    box-shadow: none !important;
+  }
+
+
+  .add-button:focus {
+    background-color: #f579af !important;
+    color: white !important;
+  }
+
+  .save-button:focus {
+    background-color: #f579af !important;
+    color: white !important;
+  }
+
+  .text-row {
+    margin-left: 85pt;
+  }
+
+  .save-btn {
+    background-color: #f579af !important;
+    color: white !important;
+    display: block;
+    margin: auto;
+    margin-top: 10% !important;
+  }
+
+  .item-select .label-md {
+    color: black;
+  }
+
+
+  .img-arrowdown {
+    position: absolute;
+    right: 5px !important;
+    margin-top: 5px !important;
+  }
+
+  .select-icon-inner {
+    border-top: 0px !important;
+  }
+
+  .select-md .select-icon {
+    width: 0px !important
+  }
+
+  .select-text {
+    min-width: 0px !important
+  }
+
+
+  yes {
+    position: absolute;
+    top: -1px;
+    right: 62px;
+  }
+
+  no {
+    right: -5px;
+    position: absolute;
+    top: -1px;
+  }
+  .round{
+    background: #f579af;
+    border-radius: 50%;
+    padding: 3px;
+    height: 25px;
+    color: white;
+    width: 25px;
+    margin: auto;
+  }
+
+  .toolbar-title {
+    margin: 0 0 0 15pt !important;
+  }
+  .set-margin{
+    margin: 5pt !important;
+  }
+  [col-2] {
+    padding: 0;
+    text-align: right;
+  }
+}

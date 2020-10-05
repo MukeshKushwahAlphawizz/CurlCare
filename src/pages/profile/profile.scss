@@ -1,0 +1,45 @@
+page-profile {
+
+  .profile-img {
+    display: block;
+    margin: auto;
+  }
+
+  .edit-img {
+    position: relative;
+    display: block;
+    margin: auto;
+    top: -55px;
+    left: 40px;
+  }
+
+  .text-track {
+    display: block;
+    margin-top: 35pt;
+    text-align: center;
+  }
+
+  .text-user {
+    display: block;
+    text-align: center;
+    margin-top: 2%;
+  }
+
+  .item-select .label-md {
+    color: black;
+  }
+
+  .save-btn-div {
+    margin: 25pt 70pt;
+  }
+
+  .select-icon-inner {
+    border-top: 0px !important;
+  }
+
+  .select-md .select-icon {
+    width: 0px !important
+  }
+
+
+}

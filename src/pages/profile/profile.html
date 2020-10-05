@@ -1,0 +1,86 @@
+<ion-content>
+    <ion-navbar>
+      <ion-buttons no-margin left>
+        <button no-margin ion-button>
+          <img class="header-img" src="assets/img/icon.png">
+        </button>
+      </ion-buttons>
+      <ion-title text-center>{{title}}</ion-title>
+      <ion-buttons end>
+        <button padding ion-button icon-only>
+          <ion-icon class="share-top-right" name="md-share"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+
+  <div margin-top>
+    <img class="profile-img" src="assets/img/Ellipse 84.png">
+    <img class="edit-img" src="assets/img/Group 1360.png">
+  </div>
+
+  <div padding margin>
+    <ion-item no-padding>
+      <ion-label class="medium-text">My Curl Pattern</ion-label>
+      <ion-select>
+        <ion-option value="Straight">Straight</ion-option>
+        <ion-option value="Wavy">Wavy</ion-option>
+        <ion-option value="Curl">Curl</ion-option>
+        <ion-option value="Coily">Coily</ion-option>
+      </ion-select>
+      <ion-icon item-right class="down" name="ios-arrow-down"></ion-icon>
+    </ion-item>
+
+    <ion-item margin-top no-padding>
+      <ion-label class="medium-text">My Curl Width</ion-label>
+      <ion-select>
+        <ion-option value="Wide">Wide</ion-option>
+        <ion-option value="Medium">Medium</ion-option>
+        <ion-option value="Small">Small</ion-option>
+      </ion-select>
+      <ion-icon item-right class="down" name="ios-arrow-down"></ion-icon>
+    </ion-item>
+
+    <ion-item margin-top no-padding>
+      <ion-label class="medium-text">My Hair Porosity</ion-label>
+      <ion-select>
+        <ion-option value="Low">Low</ion-option>
+        <ion-option value="Normal">Normal</ion-option>
+        <ion-option value="High">High</ion-option>
+      </ion-select>
+      <ion-icon item-right class="down" name="ios-arrow-down"></ion-icon>
+    </ion-item>
+
+    <ion-item (click)="selectHairLength()" margin-top no-padding>
+      <ion-label class="medium-text">My Hair Length</ion-label>
+      <ion-icon item-right class="down" name="{{showHairLength?'ios-arrow-up':'ios-arrow-down'}}"></ion-icon>
+    </ion-item>
+
+    <div *ngIf="showHairLength">
+      <span class="bold-font big-text text-purple text-track">Track my hair length</span>
+      <span class="big-text text-user text-grey">(to be available for upgraded users only)</span>
+
+      <ion-item margin-top no-padding>
+        <ion-label class="medium-text text-grey">Length in Back</ion-label>
+        <!--<ion-select>
+          <ion-option value="f" [disabled]="true">latest</ion-option>
+          <ion-option value="m" [disabled]="true">old</ion-option>
+        </ion-select>-->
+        <ion-icon item-right class="down text-grey" name="ios-arrow-down"></ion-icon>
+      </ion-item>
+
+      <ion-item margin-top no-padding>
+        <ion-label class="medium-text text-grey">Length on Side</ion-label>
+        <!--<ion-select>
+          <ion-option value="f" [disabled]="true">latest</ion-option>
+          <ion-option value="m" [disabled]="true">old</ion-option>
+        </ion-select>-->
+        <ion-icon item-right class="down text-grey" name="ios-arrow-down"></ion-icon>
+      </ion-item>
+    </div>
+  </div>
+
+  <div class="save-btn-div">
+    <button ion-button round full (click)="save()">Save</button>
+  </div>
+
+</ion-content>

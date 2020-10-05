@@ -1,0 +1,34 @@
+page-subscription {
+  .ion-img {
+    height: 320px;
+    width: 100%;
+  }
+
+  .diamond-div {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin-top: 50pt;
+    z-index: 9999;
+  }
+
+  .text-premium {
+    font-size: 3.5rem;
+    color: white;
+  }
+
+  .buy-btn {
+    display: block;
+    margin: 30pt auto;
+  }
+
+
+  .icon-img,.title{
+    margin: 0 !important;
+  }
+  .set-height{
+    min-height: 1rem !important;
+  }
+}

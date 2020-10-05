@@ -1,0 +1,41 @@
+page-payment-details {
+  .header-md::after {
+    background-image: none !important
+  }
+
+  .toolbar-background.toolbar-background-md {
+    background: #f8f8f800 !important;
+  }
+
+  .paypal-btn{
+    border-radius: 10px  !important;
+  }
+
+  .card-btn{
+    border-radius: 10px  !important;
+  }
+
+  .todayDate{
+    color: #EC5368;
+  }
+
+  .card-btn:focus{
+    background: #f7adcd;
+  }
+
+  .paypal-btn:focus{
+    background:#f7adcd;
+  }
+
+
+  .pay-button{
+    display: block;
+    margin: auto;
+    margin-top: 16px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .toolbar-title-md {
+    margin-right: 0 !important;
+  }
+}

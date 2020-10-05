@@ -1,0 +1,7 @@
+{
+  "name": "curlcare",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

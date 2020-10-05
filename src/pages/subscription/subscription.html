@@ -1,0 +1,27 @@
+<ion-content>
+  <ion-icon class="back-arrow" ios="ios-arrow-back-outline" md="ios-arrow-back-outline" (click)="backButton()"></ion-icon>
+  <img class="ion-img" src="assets/img/background.png">
+  <div text-center class="diamond-div">
+    <img src="assets/img/diamond.png">
+    <div class="text-premium">Premium</div>
+  </div>
+  <div text-center style="margin: 0 40pt;">
+    <span style="font-size: 4rem" class="text-pink">$28</span><span style="font-size: 4rem"> | </span><span style="font-size: 2.5rem">Per Month</span>
+    <ion-item margin-top no-lines class="set-height">
+      <ion-icon item-left class="icon-img text-pink" name="ios-checkmark-outline"></ion-icon>
+      <p item-start text-wrap class="small-text title">Lpsum is simply dummy</p>
+    </ion-item>
+    <ion-item no-lines class="set-height">
+      <ion-icon item-left class="icon-img text-pink" name="ios-checkmark-outline"></ion-icon>
+      <p item-start text-wrap class="small-text title">Text of the printing and</p>
+    </ion-item>
+    <ion-item no-lines class="set-height">
+      <ion-icon item-left class="icon-img text-pink" name="ios-checkmark-outline"></ion-icon>
+      <p item-start text-wrap class="small-text title">Standard dummy text ever</p>
+    </ion-item>
+  </div>
+
+  <button class="text-white buy-btn" padding ion-button round (click)="buy()"
+    style="width: 40%;">Buy
+  </button>
+</ion-content>

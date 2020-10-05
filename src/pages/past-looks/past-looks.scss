@@ -1,0 +1,48 @@
+page-past-looks {
+  img.profile-img {
+    display: block;
+    margin: auto;
+  }
+
+  .my-look {
+    height: 65pt;
+    width: 65pt;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+
+  img.edit-img {
+    position: relative;
+    display: block;
+    margin: auto;
+    top: -55px;
+    left: 40px;
+  }
+
+
+  .share-icon {
+    position: relative;
+    display: block;
+    text-align: right;
+    top: 10pt;
+
+    .share{
+      background: white;
+      padding: 4pt 6pt;
+      border-radius: 50%;
+      box-shadow: 2px 0px 5px 1px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .showmore-div{
+    margin: 30pt;
+  }
+  .hey-text {
+    margin-top: 20px;
+  }
+
+  img.bottom-img {
+    margin-top: 22px !important;
+  }
+
+}
