@@ -2,16 +2,11 @@ page-track-today {
   .profile-img {
     display: block;
     margin: auto;
+    height: 85pt;
+    border-radius: 50%;
+    width: 85pt;
+    object-fit: cover;
   }
-
-  .edit-img {
-    position: relative;
-    display: block;
-    margin: auto;
-    top: -55px;
-    left: 40px;
-  }
-
   .label-input {
     position: absolute;
     right: 30px;
@@ -101,5 +96,10 @@ page-track-today {
   [col-2] {
     padding: 0;
     text-align: right;
+  }
+  .notes-textarea{
+    width: 100%;
+    border: 1px solid #f579af;
+    padding: 10pt;
   }
 }

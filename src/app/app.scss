@@ -170,3 +170,29 @@ ion-spinner.spinner-md line {
   font-size: 3rem;
   color: white;
 }
+.profile-icon {
+  display: block;
+  margin: auto;
+  height: 80pt;
+  font-size: 8rem;
+  padding: 6pt 18pt;
+  border-radius: 50%;
+  width: 80pt;
+  color: #f579af;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border: 1px solid #f579af;
+}
+.edit-img {
+  position: relative;
+  display: block;
+  margin: auto;
+  top: -55px;
+  left: 52px;
+}
+.empty{
+  font-size: 2rem;
+  color: black;
+  font-weight: bold;
+  margin: 30pt;
+}

@@ -1,88 +1,161 @@
 <ion-content>
   <div class="top_img">
-    <img src="assets/img/Splash Page1.png">
+    <img src="assets/img/bg-girl.png">
   </div>
 
   <div padding>
-    <ion-segment [(ngModel)]="userDetails" color="primary" (ionChange)="segmentChanged($event)" margin-top>
-      <ion-segment-button class="text-pink my-class background-purple medium-text btn text-transfrom" value="friends">
+    <ion-segment [(ngModel)]="userDetails" color="primary" margin-top>
+      <ion-segment-button class="text-pink my-class background-purple medium-text btn text-transfrom" value="login">
         Sign In
       </ion-segment-button>
-      <ion-segment-button class="text-pink new-class background-purple medium-text btn text-transfrom" value="enemies">
+      <ion-segment-button class="text-pink new-class background-purple medium-text btn text-transfrom" value="signup">
         Sign Up
       </ion-segment-button>
     </ion-segment>
 
     <div [ngSwitch]="userDetails">
-      <ion-list *ngSwitchCase="'friends'">
-        <ion-item style="width: 90%;" margin-left margin-top>
-          <ion-label floating>
-            <ion-icon class="left-icon" name="ios-person-outline"></ion-icon><span margin-left>Username</span>
-          </ion-label>
-          <ion-input class='auto-location full-input' type="text"></ion-input>
-        </ion-item>
+      <ion-list *ngSwitchCase="'login'">
+        <form [formGroup]="loginForm">
+          <ion-item style="width: 90%;" margin-left margin-top>
+            <ion-label floating>
+              <!--<ion-icon class="left-icon" name="ios-person-outline"></ion-icon><span margin-left>Username</span>-->
+              <ion-icon class="left-icon" name="ios-mail-outline"></ion-icon><span margin-left>Email</span>
+            </ion-label>
+            <ion-input formControlName="email" class='auto-location full-input' type="email"></ion-input>
+          </ion-item>
+          <div>
+            <ng-container *ngFor="let error of error_messages_login.email">
+              <div class="error-message left-margin" *ngIf="loginForm.get('email').hasError(error.type) &&
+                (loginForm.get('email').dirty || loginForm.get('email').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
 
-        <ion-item style="width: 90%;" margin-left margin-top>
-          <ion-label floating>
-            <ion-icon class="left-icon" name="ios-key-outline"></ion-icon><span margin-left>Password</span>
-          </ion-label>assets
-          <ion-input class='auto-location full-input' type="password"></ion-input>
-        </ion-item>
+          <ion-item style="width: 90%;" margin-left margin-top>
+            <ion-label floating>
+              <ion-icon class="left-icon" name="ios-key-outline"></ion-icon><span margin-left>Password</span>
+            </ion-label>assets
+            <ion-input formControlName="password" class='auto-location full-input'[type]="show ? 'text' : 'password'"></ion-input>
+          </ion-item>
+          <div (click)="show = !show" class="icon-div eye-div">
+            <ion-icon *ngIf="!show" class="icon-eye text-grey" ios="ios-eye" md="md-eye"></ion-icon>
+            <ion-icon *ngIf="show" class="icon-eye text-grey" ios="ios-eye-off" md="md-eye-off"></ion-icon>
+          </div>
+          <div>
+            <ng-container *ngFor="let error of error_messages_login.password">
+              <div class="error-message left-margin"
+                   *ngIf="loginForm.get('password').hasError(error.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
 
-        <ion-label style="text-align: end;margin-right: 16px;" class="text-grey bold-font" (click)="openForgotPassord()">
-          Forgot
-          Password</ion-label>
-        <button class="text-white text-transfrom signin-btn" padding ion-button round (click)="openSignin()"
-                style="width: 40%;">Sign In
-        </button>
+          <ion-label style="text-align: end;margin-right: 16px;" class="text-grey bold-font" (click)="openForgotPassord()">
+            Forgot
+            Password</ion-label>
+          <button [disabled]="loginForm.invalid" class="text-white text-transfrom signin-btn" padding ion-button round (click)="login()"
+                  style="width: 40%;">Sign In
+          </button>
+        </form>
+
         <ion-label class="text-grey" style="text-align: center;font-style: oblique;">Sign in with</ion-label>
 
-        <div class="row icon" style="margin: auto;">
-          <img src="assets/img/Group 1252.png">
-          <img src="assets/img/Group 1254.png">
+        <div class="social-div" text-center>
+          <span style="margin-right: 5pt"><img class="social-img" (click)="fbLogin()" src="assets/img/fb.png"></span>
+          <span style="margin-left: 5pt"><img class="social-img" (click)="googleLogin()" src="assets/img/google.png"></span>
         </div>
       </ion-list>
     </div>
 
     <div [ngSwitch]="userDetails">
-      <ion-list *ngSwitchCase="'enemies'">
-        <ion-item style="width: 90%;" margin-left margin-top>
-          <ion-label floating>
-            <ion-icon class="left-icon" name="ios-person-outline"></ion-icon><span margin-left>First Name</span>
-          </ion-label>
-          <ion-input class='auto-location full-input' type="text"></ion-input>
-        </ion-item>
+      <ion-list *ngSwitchCase="'signup'">
+        <form [formGroup]="signUpForm">
+          <ion-item style="width: 90%;" margin-left margin-top>
+            <ion-label floating>
+              <ion-icon class="left-icon" name="ios-person-outline"></ion-icon><span margin-left>First Name</span>
+            </ion-label>
+            <ion-input formControlName="firstName" class='auto-location full-input' type="text"></ion-input>
+          </ion-item>
+          <div>
+            <ng-container *ngFor="let error of error_messages.firstName">
+              <div class="error-message left-margin" *ngIf="signUpForm.get('firstName').hasError(error.type) &&
+                (signUpForm.get('firstName').dirty || signUpForm.get('firstName').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
 
-        <ion-item style="width: 90%;" margin-left margin-top>
-          <ion-label floating>
-            <ion-icon class="left-icon" name="ios-person-outline"></ion-icon><span margin-left>Create a Username</span>
-          </ion-label>
-          <ion-input class='auto-location full-input' type="text"></ion-input>
-        </ion-item>
+          <ion-item style="width: 90%;" margin-left margin-top>
+            <ion-label floating>
+              <ion-icon class="left-icon" name="ios-person-outline"></ion-icon><span margin-left>Create a Username</span>
+            </ion-label>
+            <ion-input formControlName="username" class='auto-location full-input' type="text"></ion-input>
+          </ion-item>
+          <div>
+            <ng-container *ngFor="let error of error_messages.username">
+              <div class="error-message left-margin" *ngIf="signUpForm.get('username').hasError(error.type) &&
+                (signUpForm.get('username').dirty || signUpForm.get('username').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
 
-        <ion-item style="width: 90%;" margin-left margin-top>
-          <ion-label floating>
-            <ion-icon class="left-icon" name="ios-key-outline"></ion-icon><span margin-left>Password</span>
-          </ion-label>
-          <ion-input class='auto-location full-input' type="password"></ion-input>
-        </ion-item>
+          <ion-item style="width: 90%;" margin-left margin-top>
+            <ion-label floating>
+              <ion-icon class="left-icon" name="ios-mail-outline"></ion-icon><span margin-left>Email</span>
+            </ion-label>
+            <ion-input formControlName="email" class='auto-location full-input' type="email"></ion-input>
+          </ion-item>
+          <div>
+            <ng-container *ngFor="let error of error_messages.email">
+              <div class="error-message left-margin" *ngIf="signUpForm.get('email').hasError(error.type) &&
+                (signUpForm.get('email').dirty || signUpForm.get('email').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
 
-        <ion-item style="width: 90%;" margin-left margin-top>
-          <ion-label floating>
-            <ion-icon class="left-icon" name="ios-key-outline"></ion-icon><span margin-left>Confirm Password</span>
-          </ion-label>
-          <ion-input class='auto-location full-input' type="password"></ion-input>
-        </ion-item>
+          <ion-item style="width: 90%;" margin-left margin-top>
+            <ion-label floating>
+              <ion-icon class="left-icon" name="ios-key-outline"></ion-icon><span margin-left>Password</span>
+            </ion-label>
+            <ion-input formControlName="password" class='auto-location full-input' type="password"></ion-input>
+          </ion-item>
+          <div>
+            <ng-container *ngFor="let error of error_messages.password">
+              <div class="error-message left-margin"
+                   *ngIf="signUpForm.get('password').hasError(error.type) && (signUpForm.get('password').dirty || signUpForm.get('password').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
 
+          <ion-item style="width: 90%;" margin-left margin-top>
+            <ion-label floating>
+              <ion-icon class="left-icon" name="ios-key-outline"></ion-icon><span margin-left>Confirm Password</span>
+            </ion-label>
+            <ion-input formControlName="confirmPassword" class='auto-location full-input' type="password"></ion-input>
+          </ion-item>
+          <div>
+            <ng-container *ngFor="let error of error_messages.confirmPassword">
+              <div class="error-message left-margin"
+                   *ngIf="signUpForm.get('confirmPassword').hasError(error.type) && (signUpForm.get('confirmPassword').dirty || signUpForm.get('confirmPassword').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
 
-        <button class="text-white signin-btn" padding ion-button round margin-top (click)="openSignup()"
-                style="width: 40%;">Sign Up
-        </button>
+          <button [disabled]="signUpForm.invalid" class="text-white signin-btn" padding ion-button round margin-top (click)="signup()"
+                  style="width: 40%;">Sign Up
+          </button>
+        </form>
+
         <ion-label class="text-grey" style="text-align: center;font-style: oblique;">Sign in with</ion-label>
 
-        <div class="row icon" style="margin: auto;">
-          <img src="assets/img/Group 1252.png">
-          <img src="assets/img/Group 1254.png">
+        <div class="social-div" text-center>
+          <span style="margin-right: 5pt"><img class="social-img" (click)="fbLogin()" src="assets/img/fb.png"></span>
+          <span style="margin-left: 5pt"><img class="social-img" (click)="googleLogin()" src="assets/img/google.png"></span>
         </div>
       </ion-list>
     </div>

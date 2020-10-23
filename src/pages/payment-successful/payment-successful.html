@@ -4,7 +4,7 @@
     </ion-buttons>
     <ion-title text-center>Payment Successful</ion-title>
     <ion-buttons end>
-      <button padding ion-button icon-only>
+      <button (click)="share()" padding ion-button icon-only>
         <ion-icon class="share-top-right" name="md-share"></ion-icon>
       </button>
     </ion-buttons>
@@ -14,27 +14,27 @@
 <ion-content>
   <div class="row" padding>
     <div col-8>
-      <ion-label>Money Paid to Salon Name Here</ion-label>
-      <ion-label style="font-size: 3.5rem;" class="input-amount">$28</ion-label>
-      <ion-label>25 Aug 2020 1:33 PM</ion-label>
+      <ion-label>Money Paid to {{receiverName}}</ion-label>
+      <ion-label style="font-size: 3.5rem;" class="input-amount">${{amount}}</ion-label>
+      <ion-label>{{getPaymenDate()}}</ion-label>
     </div>
-    <div col-4>
-      <img class="img-group" src="assets/img/Group 5158.png">
-      <div class="text-payment">payment done</div>
+    <div col-4 text-center>
+      <!--<img class="img-group" src="assets/img/Group 5158.png">-->
+      <ion-icon margin-top class="check" name="ios-checkmark-circle"></ion-icon>
+      <div class="text-payment">Payment Done</div>
     </div>
   </div>
   <hr class="solid">
   <div class="row" padding>
     <div col-6>
       <ion-label>Form</ion-label>
-      <ion-label>Card Name</ion-label>
-      <ion-label>7869 69703 2570</ion-label>
-      <ion-label>Bank Name Here</ion-label>
+      <ion-label>{{cardName}}</ion-label>
+      <ion-label>**** **** {{last4}}</ion-label>
+      <!--<ion-label>Bank Name Here</ion-label>-->
     </div>
     <div col-6>
       <ion-label class="text-label">Transaction Id</ion-label>
-      <ion-label class="id-label">#4895621ATGNKM752</ion-label>
-      <!--<img class="img-src" end src="../../assets/img/Icon awesome-credit-card.png">-->
+      <ion-label class="id-label">{{transactionId}}</ion-label>
       <ion-icon end class="card-img" name="ios-card"></ion-icon>
     </div>
   </div>

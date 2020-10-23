@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "105167782462",
+    "firebase_url": "https://curlcare.firebaseio.com",
+    "project_id": "curlcare",
+    "storage_bucket": "curlcare.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105167782462:android:a2ce3169a21a454591076f",
+        "android_client_info": {
+          "package_name": "com.alpha.curlcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105167782462-qc0nc5csske6r0oahn514nk16ho5j41n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alpha.curlcare",
+            "certificate_hash": "a1f9951b586b46b3fefcd78bdb67531f151e2c5f"
+          }
+        },
+        {
+          "client_id": "105167782462-rv6a0bceh7s490feadgrpadd0g5798ur.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_aDLeXNa98Zt_eCjds5VRxgQKJcdRmx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105167782462-rv6a0bceh7s490feadgrpadd0g5798ur.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

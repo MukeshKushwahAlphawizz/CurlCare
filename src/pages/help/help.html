@@ -25,28 +25,62 @@
     </p>
 
     <h1>Contact Form</h1>
-    <ion-item no-padding class="text-black">
-      <ion-label floating>Name</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
+    <form [formGroup]="contactForm">
+      <ion-item no-padding class="text-black">
+        <ion-label floating>Name</ion-label>
+        <ion-input formControlName="name" type="text"></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let error of error_messages.name">
+          <div class="error-message"
+               *ngIf="contactForm.get('name').hasError(error.type) && (contactForm.get('name').dirty || contactForm.get('name').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
 
-    <ion-item no-padding>
-      <ion-label floating>Email</ion-label>
-      <ion-input type="email"></ion-input>
-    </ion-item>
+      <ion-item no-padding>
+        <ion-label floating>Email</ion-label>
+        <ion-input formControlName="email" type="email"></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let error of error_messages.email">
+          <div class="error-message"
+               *ngIf="contactForm.get('email').hasError(error.type) && (contactForm.get('email').dirty || contactForm.get('email').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
 
-    <ion-item no-padding>
-      <ion-label floating>Mobile No</ion-label>
-      <ion-input type="tel"></ion-input>
-    </ion-item>
+      <ion-item no-padding>
+        <ion-label floating>Mobile No</ion-label>
+        <ion-input formControlName="mobile_no" type="tel"></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let error of error_messages.mobile_no">
+          <div class="error-message"
+               *ngIf="contactForm.get('mobile_no').hasError(error.type) && (contactForm.get('mobile_no').dirty || contactForm.get('mobile_no').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
 
-    <ion-item no-padding>
-      <ion-label floating>Message</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
+      <ion-item no-padding>
+        <ion-label floating>Message</ion-label>
+        <ion-input formControlName="message" type="text"></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let error of error_messages.message">
+          <div class="error-message"
+               *ngIf="contactForm.get('message').hasError(error.type) && (contactForm.get('message').dirty || contactForm.get('message').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
 
-    <button class="text-white contact-form" padding ion-button round margin-top (click)="send()"
-            style="width: 40%;">Send
-    </button>
+      <button [disabled]="contactForm.invalid" class="text-white contact-form" padding ion-button round margin-top (click)="send()"
+              style="width: 40%;">Send
+      </button>
+    </form>
   </div>
 </ion-content>

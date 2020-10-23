@@ -2,13 +2,14 @@
   <div padding>
     <div padding class="modal">
       <div margin-top margin-bottom class="bold-font medium-text text-pink" text-center>Add More Products</div>
-      <img style="display: block;margin: auto;" src="assets/img/Group 5156.png">
+      <img (click)="openPicker()" style="display: block;margin: auto;" [src]="productImg!==''?'data:image/png;base64,'+productImg:'assets/img/add-icon.png'">
       <div class="text-upload bold-font">Upload Image</div>
       <ion-item margin-top>
-        <ion-input type="text" placeholder="Product Name"></ion-input>
+        <ion-input [(ngModel)]="name" type="text" placeholder="Product Name"></ion-input>
       </ion-item>
-      <div margin-top margin-bottom>
-        <button round ion-button (click)="save()" style="width: 50%;display: block;margin: auto;">Save</button>
+      <div text-center margin-top margin-bottom>
+        <span><button class="cancel-button" clear round ion-button (click)="cancel()">Cancel</button></span>
+        <span margin-left><button round ion-button (click)="save()">Save</button></span>
       </div>
     </div>
   </div>

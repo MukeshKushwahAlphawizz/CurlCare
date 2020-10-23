@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {User} from "../../providers";
+import {UtilProvider} from "../../providers/util/util";
 
 @IonicPage()
 @Component({
@@ -8,11 +10,33 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AboutPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  data:any = '';
+  constructor(public navCtrl: NavController,
+              public user:User,
+              public util:UtilProvider,
+              public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AboutPage');
+    this.getData();
+  }
+
+  getData() {
+    this.util.presentLoading('');
+    this.user.getAboutUs().subscribe(res=>{
+      let resp : any = res;
+      if (resp.status){
+        this.data = resp.data;
+      }else {
+        this.util.presentLoading(resp.message);
+      }
+      setTimeout(()=>{
+        this.util.dismissLoading();
+      },500)
+    },error => {
+      console.error(error);
+      this.util.dismissLoading();
+    })
   }
 
 }

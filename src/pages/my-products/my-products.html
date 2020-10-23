@@ -2,128 +2,50 @@
   <div padding margin-left margin-right>
     <div class="row">
       <ion-title text-center>My Products</ion-title>
-      <ion-icon class="share-top-right" name="md-share"></ion-icon>
+      <ion-icon (click)="share()" class="share-top-right" name="md-share"></ion-icon>
     </div>
   </div>
 
-  <div padding margin>
-    <div class="bold-font medium-text">Recently Used Products</div>
-    <div class="row" margin-top>
-      <div col-4>
-        <ion-card no-padding no-margin>
-          <img class="product-img" src="assets/imgs/product1.png">
-          <div class="smaller-text name" text-center>Name Here</div>
-        </ion-card>
-      </div>
-      <div col-4>
-        <ion-card no-padding no-margin>
-          <img class="product-img" src="assets/imgs/product2.png">
-          <div class="smaller-text name" text-center>Name Here</div>
-        </ion-card>
-      </div>
-      <div col-4>
-        <ion-card no-padding no-margin>
-          <img class="product-img" src="assets/imgs/product3.png">
-          <div class="smaller-text name" text-center>Name Here</div>
-        </ion-card>
-      </div>
-    </div>
-    <div class="row" margin-top>
-      <div col-4>
-        <ion-card no-padding no-margin>
-          <img class="product-img" src="assets/imgs/product4.png">
-          <div class="smaller-text name" text-center>Name Here</div>
-        </ion-card>
-      </div>
-      <div col-4>
-        <ion-card no-padding no-margin>
-          <img class="product-img" src="assets/imgs/product5.png">
-          <div class="smaller-text name" text-center>Name Here</div>
-        </ion-card>
-      </div>
-    </div>
+  <div *ngIf="isEmpty">
+    <div class="empty" text-center>Product List is empty</div>
   </div>
+  <div *ngIf="!isEmpty">
+    <div padding margin>
+      <div class="bold-font medium-text">Recently Used Products</div>
+      <div class="row" margin-top>
+        <div col-4 *ngFor="let item of usedList">
+          <ion-card no-padding no-margin>
+            <img class="product-img" [src]="item.image && item.image !==''?baseUrl+item.image:'assets/imgs/product1.png'">
+            <div class="smaller-text name" text-center>{{item.name}}</div>
+          </ion-card>
+        </div>
 
-  <div margin-left padding-left class="bold-font medium-text">All Product I've Tracked</div>
-  <div margin-top>
-    <ion-slides slidesPerView="3.5" loop="true">
-      <ion-slide>
-        <div style="margin: 6px">
-          <ion-card no-margin>
-            <img class="product-img" src="assets/imgs/product1.png">
-            <div class="smaller-text name" text-center>Name Here</div>
-          </ion-card>
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <div style="margin: 6px">
-          <ion-card no-margin>
-            <img class="product-img" src="assets/imgs/product2.png">
-            <div class="smaller-text name" text-center>Name Here</div>
-          </ion-card>
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <div style="margin: 6px">
-          <ion-card no-margin>
-            <img class="product-img" src="assets/imgs/product3.png">
-            <div class="smaller-text name" text-center>Name Here</div>
-          </ion-card>
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <div style="margin: 6px">
-          <ion-card no-margin>
-            <img class="product-img" src="assets/imgs/product4.png">
-            <div class="smaller-text name" text-center>Name Here</div>
-          </ion-card>
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <div style="margin: 6px">
-          <ion-card no-margin>
-            <img class="product-img" src="assets/imgs/product5.png">
-            <div class="smaller-text name" text-center>Name Here</div>
-          </ion-card>
-        </div>
-      </ion-slide>
-    </ion-slides>
-  </div>
-
-  <div padding margin>
-    <div class="bold-font medium-text">Products I Loved</div>
-    <div class="row" margin-top>
-      <div col-4>
-        <ion-card no-padding no-margin>
-          <img class="product-img" src="assets/imgs/product1.png">
-          <div class="smaller-text name" text-center>Name Here</div>
-        </ion-card>
-      </div>
-      <div col-4>
-        <ion-card no-padding no-margin>
-          <img class="product-img" src="assets/imgs/product2.png">
-          <div class="smaller-text name" text-center>Name Here</div>
-        </ion-card>
-      </div>
-      <div col-4>
-        <ion-card no-padding no-margin>
-          <img class="product-img" src="assets/imgs/product3.png">
-          <div class="smaller-text name" text-center>Name Here</div>
-        </ion-card>
       </div>
     </div>
-    <div class="row" margin-top>
-      <div col-4>
-        <ion-card no-padding no-margin>
-          <img class="product-img" src="assets/imgs/product4.png">
-          <div class="smaller-text name" text-center>Name Here</div>
-        </ion-card>
-      </div>
-      <div col-4>
-        <ion-card no-padding no-margin>
-          <img class="product-img" src="assets/imgs/product5.png">
-          <div class="smaller-text name" text-center>Name Here</div>
-        </ion-card>
+
+    <div *ngIf="isPurchased" margin-left padding-left class="bold-font medium-text">All Product I've Tracked</div>
+    <div *ngIf="isPurchased" margin-top>
+      <ion-slides slidesPerView="3.5" loop="true">
+        <ion-slide *ngFor="let item of lovedList">
+          <div style="margin: 6px">
+            <ion-card no-margin>
+              <img class="product-img" [src]="item.image && item.image !==''?baseUrl+item.image:'assets/imgs/product1.png'">
+              <div class="smaller-text name" text-center>{{item.name}}</div>
+            </ion-card>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+    <div padding margin>
+      <div class="bold-font medium-text">Products I Loved</div>
+      <div class="row" margin-top>
+        <div col-4 *ngFor="let item of lovedList">
+          <ion-card no-padding no-margin>
+            <img class="product-img" [src]="item.image && item.image !==''?baseUrl+item.image:'assets/imgs/product1.png'">
+            <div class="smaller-text name" text-center>{{item.name}}</div>
+          </ion-card>
+        </div>
       </div>
     </div>
   </div>

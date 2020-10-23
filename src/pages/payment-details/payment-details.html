@@ -4,7 +4,7 @@
     </ion-buttons>
     <ion-title text-center>Payment Details</ion-title>
     <ion-buttons end>
-      <button padding ion-button icon-only>
+      <button (click)="share()" padding ion-button icon-only>
         <ion-icon class="share-top-right" name="md-share"></ion-icon>
       </button>
     </ion-buttons>
@@ -12,39 +12,20 @@
 </ion-header>
 
 <ion-content>
-  <!--<ion-navbar>
-    <ion-buttons no-margin left>
-      <button padding no-margin ion-button>
-        <ion-icon ios="ios-arrow-back-outline" md="ios-arrow-back-outline" (click)="back()"></ion-icon>
-      </button>
-    </ion-buttons>
-    <ion-title text-center>Payment Details</ion-title>
-    <ion-buttons end>
-      <button padding ion-button icon-only>
-        <ion-icon class="share-top-right" name="md-share"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>-->
-  <!--<div margin-left margin-right margin-bottom>
-    <div class="row">
-      <ion-title text-center>August</ion-title>
-      <ion-icon class="share-top-right" name="md-share"></ion-icon>
-    </div>
-  </div>-->
   <div margin class="big-text">Get Curl Care Select</div>
-  <div class="bold-font large-text total-price text-purple" style="font-size: 3rem;" margin>$28</div>
-  <div margin class="big-text">Paypal Method</div>
+  <div class="bold-font large-text total-price text-purple" style="font-size: 3rem;" margin>${{paymentAmount}}</div>
+  <div margin class="big-text">Payment Method</div>
 
-  <div class="row" margin-left>
-    <button class="text-white text-transfrom paypal-btn" ion-button round (click)="save()" style="width: 40%;">
+  <div class="row" margin-left text-center>
+    <button (click)="paypal()" [ngClass]="isPaypal?'focus':''" class="text-white text-transfrom paypal-btn" ion-button round style="width: 40%;">
       <span>Paypal</span>
       <span margin-left class="large-text">
         <ion-icon ios="ios-checkmark-circle-outline" md="ios-checkmark-circle-outline"></ion-icon>
       </span>
     </button>
 
-    <button class="text-white text-transfrom card-btn" margin-left ion-button round (click)="save()"
-      style="width: 40%;">
+    <button (click)="cardPay()" [ngClass]="isPaypal?'':'focus'" class="text-white text-transfrom card-btn" ion-button margin-left round
+            style="width: 40%;">
       <span>Card</span>
       <span margin-left class="large-text">
         <ion-icon ios="ios-checkmark-circle-outline" md="ios-checkmark-circle-outline"></ion-icon>
@@ -52,25 +33,40 @@
     </button>
   </div>
 
-  <ion-item>
-    <ion-label floating>Card Number</ion-label>
-    <ion-input type="text" value=""></ion-input>
-  </ion-item>
-  <div class="row">
-    <ion-item style="width: 50%;">
-      <ion-label floating>Vaild Until</ion-label>
-      <ion-input type="text" value=""></ion-input>
-    </ion-item>
-
-    <ion-item style="width: 50%;">
-      <ion-label floating>cvv</ion-label>
-      <ion-input type="text" value=""></ion-input>
-    </ion-item>
+  <div [hidden]="!isPaypal">
+    <div padding margin id="paypal-button"></div>
   </div>
-  <ion-item>
-    <ion-label floating>Card Holder Name</ion-label>
-    <ion-input type="text" value=""></ion-input>
-  </ion-item>
+  <div [hidden]="isPaypal">
+    <form padding action="/" method="post" id="payment-form">
+      <div class="form-row">
+        <div id="card-element">
+        </div>
+        <div id="card-errors" role="alert"></div>
+      </div>
+      <button class="text-white text-transfrom pay-button" ion-button round>Process to pay</button>
+      <!--<div margin text-center><button margin-top ion-button round small>Pay</button></div>-->
+    </form>
+    <!--<ion-item>
+      <ion-label floating>Card Number</ion-label>
+      <ion-input type="text" value=""></ion-input>
+    </ion-item>
+    <div class="row">
+      <ion-item style="width: 50%;">
+        <ion-label floating>Vaild Until</ion-label>
+        <ion-input type="text" value=""></ion-input>
+      </ion-item>
 
-  <button class="text-white text-transfrom pay-button" ion-button round (click)="proceedTopay()">Process to pay</button>
+      <ion-item style="width: 50%;">
+        <ion-label floating>cvv</ion-label>
+        <ion-input type="text" value=""></ion-input>
+      </ion-item>
+    </div>
+    <ion-item>
+      <ion-label floating>Card Holder Name</ion-label>
+      <ion-input type="text" value=""></ion-input>
+    </ion-item>
+
+    <button class="text-white text-transfrom pay-button" ion-button round (click)="proceedTopay()">Process to pay</button>-->
+  </div>
+
 </ion-content>

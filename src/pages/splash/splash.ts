@@ -12,15 +12,14 @@ export class SplashPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SplashPage');
   }
 
   signIn(){
-    this.navCtrl.setRoot('LoginPage');
+    this.navCtrl.setRoot('LoginPage',{type:1});
   }
   
   signUp(){
-    this.navCtrl.setRoot('LoginPage');
+    this.navCtrl.setRoot('LoginPage',{type:0});
   }
 
 }

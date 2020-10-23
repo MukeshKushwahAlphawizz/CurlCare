@@ -1,7 +1,11 @@
 page-past-looks {
-  img.profile-img {
+  .profile-img {
     display: block;
     margin: auto;
+    height: 85pt;
+    border-radius: 50%;
+    width: 85pt;
+    object-fit: cover;
   }
 
   .my-look {
@@ -10,15 +14,6 @@ page-past-looks {
     object-fit: contain;
     border-radius: 10px;
   }
-
-  img.edit-img {
-    position: relative;
-    display: block;
-    margin: auto;
-    top: -55px;
-    left: 40px;
-  }
-
 
   .share-icon {
     position: relative;

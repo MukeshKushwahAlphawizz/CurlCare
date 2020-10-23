@@ -56,7 +56,7 @@ page-login {
   .signin-btn {
     display: block;
     margin: auto;
-    margin-top: 30pt;
+    margin-top: 30pt !important;
   }
 
   .row.icon {
@@ -64,5 +64,28 @@ page-login {
   }
   .left-icon{
     font-size: 2.5rem;
+  }
+  .left-margin{
+    margin-left: 25pt;
+  }
+  .eye-div{
+    right: 30pt;
+    margin-top: -26pt;
+  }
+  .icon-eye{
+    font-size: 2.5rem;
+  }
+  .icon-div{
+    position: absolute;
+    z-index: 99999;
+  }
+  .social-div{
+    margin-top: 20pt;
+    .social-img{
+      width: 30pt;
+      height: 30pt;
+      border-radius: 50%;
+      box-shadow: 0 1px 1px 2px #dededed9;
+    }
   }
 }

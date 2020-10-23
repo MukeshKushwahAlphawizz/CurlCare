@@ -1,84 +1,90 @@
 import 'rxjs/add/operator/toPromise';
-
 import { Injectable } from '@angular/core';
-
 import { Api } from '../api/api';
 
-/**
- * Most apps have the concept of a User. This is a simple provider
- * with stubs for login/signup/etc.
- *
- * This User provider makes calls to our API at the `login` and `signup` endpoints.
- *
- * By default, it expects `login` and `signup` to return a JSON object of the shape:
- *
- * ```json
- * {
- *   status: 'success',
- *   user: {
- *     // User fields your app needs, like "id", "name", "email", etc.
- *   }
- * }Ø
- * ```
- *
- * If the `status` field is not `success`, then an error is detected and returned.
- */
 @Injectable()
 export class User {
-  _user: any;
+  registration:string='Authentication/registration';
+  login:string='Authentication/login';
+  socialLoginUrl:string='Authentication/SocialLogin';
+  forgetPasswordUrl:string='Authentication/ForgetPassword';
+  updatePasswordUrl:string='Authentication/updatePassword';
+  aboutUs:string='Authentication/AboutUs';
+  termsCondition:string='Authentication/TermsCondition';
+  contactUs:string='Authentication/ContactUs';
+  myProducts:string='Authentication/MyProducts';
+  addProduct:string='Authentication/AddProduct';
+  updateProfile:string='Authentication/UpdateProfile';
+  addTrack:string='Authentication/AddTrack';
+  myCurlQueue:string='Authentication/MyCurlQueue';
+  productUsed:string='Authentication/productUsed';
+  myQueueList:string='Authentication/MyQueueList';
+  addPackage:string='Authentication/addPackage';
 
   constructor(public api: Api) { }
 
-  /**
-   * Send a POST request to our login endpoint with the data
-   * the user entered on the form.
-   */
-  login(accountInfo: any) {
-    let seq = this.api.post('login', accountInfo).share();
-
-    seq.subscribe((res: any) => {
-      // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
-        this._loggedIn(res);
-      } else {
-      }
-    }, err => {
-      console.error('ERROR', err);
-    });
-
+  loginData(accountInfo: any) {
+    let seq = this.api.post(this.login, accountInfo).share();
     return seq;
   }
-
-  /**
-   * Send a POST request to our signup endpoint with the data
-   * the user entered on the form.
-   */
   signup(accountInfo: any) {
-    let seq = this.api.post('signup', accountInfo).share();
-
-    seq.subscribe((res: any) => {
-      // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
-        this._loggedIn(res);
-      }
-    }, err => {
-      console.error('ERROR', err);
-    });
-
+    let seq = this.api.post(this.registration, accountInfo).share();
     return seq;
   }
-
-  /**
-   * Log the user out, which forgets the session
-   */
-  logout() {
-    this._user = null;
+  socialLogin(data: any) {
+    let seq = this.api.post(this.socialLoginUrl, data).share();
+    return seq;
   }
-
-  /**
-   * Process a login/signup response to store user data
-   */
-  _loggedIn(resp) {
-    this._user = resp.user;
+  forgetPassword(data: any) {
+    let seq = this.api.post(this.forgetPasswordUrl, data).share();
+    return seq;
+  }
+  updatePassword(data: any) {
+    let seq = this.api.post(this.updatePasswordUrl, data).share();
+    return seq;
+  }
+  getAboutUs() {
+    let seq = this.api.get(this.aboutUs).share();
+    return seq;
+  }
+  getTermsCondition() {
+    let seq = this.api.get(this.termsCondition).share();
+    return seq;
+  }
+  getProductList() {
+    let seq = this.api.get(this.myProducts).share();
+    return seq;
+  }
+  contactUsForm(data: any) {
+    let seq = this.api.post(this.contactUs, data).share();
+    return seq;
+  }
+  addProductData(data: any) {
+    let seq = this.api.post(this.addProduct, data).share();
+    return seq;
+  }
+  updateProfileData(data: any) {
+    let seq = this.api.post(this.updateProfile, data).share();
+    return seq;
+  }
+  trackToday(data: any) {
+    let seq = this.api.post(this.addTrack, data).share();
+    return seq;
+  }
+  myCurlQueueData(data: any) {
+    let seq = this.api.post(this.myCurlQueue, data).share();
+    return seq;
+  }
+  productUsedData(data: any) {
+    let seq = this.api.post(this.productUsed, data).share();
+    return seq;
+  }
+  myQueueListData(data: any) {
+    let seq = this.api.post(this.myQueueList, data).share();
+    return seq;
+  }
+  paymentStripe(data: any) {
+    let seq = this.api.post(this.addPackage, data).share();
+    return seq;
   }
 }

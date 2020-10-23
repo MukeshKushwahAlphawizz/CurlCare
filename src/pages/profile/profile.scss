@@ -3,14 +3,10 @@ page-profile {
   .profile-img {
     display: block;
     margin: auto;
-  }
-
-  .edit-img {
-    position: relative;
-    display: block;
-    margin: auto;
-    top: -55px;
-    left: 40px;
+    height: 85pt;
+    border-radius: 50%;
+    width: 85pt;
+    object-fit: cover;
   }
 
   .text-track {

@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Storage} from "@ionic/storage";
+import {SocialSharing} from "@ionic-native/social-sharing";
+import {profileBaseURL, UtilProvider} from "../../providers/util/util";
+import {el} from "@angular/platform-browser/testing/src/browser_util";
 // import { SocialSharing } from '@ionic-native/social-sharing';
 
 @IonicPage()
@@ -9,13 +13,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MorePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    //  public socialSharing: SocialSharing
-     ) {
+  userData : any = '';
+  profileBaseURL: string = profileBaseURL;
+  enableNotification: boolean = true;
+  constructor(public navCtrl: NavController,
+              public storage : Storage,
+              public util : UtilProvider,
+              public socialShare : SocialSharing,
+              public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MorePage');
+  ionViewDidEnter() {
+    this.getUserData();
   }
 
   changePassword() {
@@ -36,27 +45,30 @@ export class MorePage {
   }
 
   upgradeAccount() {
-    this.navCtrl.push('SubscriptionPage');
+    if (this.userData.is_purchased ==='1'){
+      this.util.presentAlert('','Already Subscribed');
+    }else {
+      this.navCtrl.push('SubscriptionPage');
+    }
+
   }
 
-  // social sharing plugin
-  // shareapp(message, subject, file, url) {
-  //   // Share via
-  //   this.socialSharing.share('Curl-Care Application', 'curlcare', null, 'url').then((success) => {
-  //     console.log(success, "success");
-  //     // Success!
-  //   }).catch((error) => {
-  //     console.log(error, "error");
-  //     // Error!
-  //   });
-  // }
+  getUserData() {
+    this.storage.get('userData').then(data=>{
+      this.userData = JSON.parse(data);
+    })
+  }
 
-  //share via Email
-  // shareViaEmail() {
-  //   this.socialSharing.shareViaEmail('body', 'subject', ['dummy@gmail.com']).then((res) => {
-  //     // Success
-  //   }).catch((e) => {
-  //     // Error!
-  //   })
-  // }
+  changePush(data) {
+    console.log(data.checked);
+    this.enableNotification = data.checked;
+  }
+
+    invite() {
+      this.socialShare.share('','','','').then(()=>{}).catch(()=>{});
+    }
+
+    addAccount() {
+        this.util.presentToast('This feature is coming soon!!');
+    }
 }

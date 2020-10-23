@@ -3,20 +3,32 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform } from 'ionic-angular';
-import { Settings } from '../providers';
+import {Storage} from "@ionic/storage";
+
 
 @Component({
   template: `<ion-nav #content [root]="rootPage"></ion-nav>`
 })
 export class MyApp {
-  rootPage = 'SplashPage';
+  rootPage = '';
 
   @ViewChild(Nav) nav: Nav;
 
-  constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
+  constructor(private translate: TranslateService,
+              platform: Platform,
+              public storage : Storage,
+              private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
     platform.ready().then(() => {
       this.statusBar.styleLightContent();
       this.splashScreen.hide();
+
+      storage.get('userData').then(user=>{
+        if (user){
+          this.rootPage = 'TabsPage';
+        }else {
+          this.rootPage = 'SplashPage';
+        }
+      })
     });
     this.initTranslate();
   }

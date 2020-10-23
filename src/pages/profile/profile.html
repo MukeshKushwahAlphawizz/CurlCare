@@ -5,23 +5,28 @@
           <img class="header-img" src="assets/img/icon.png">
         </button>
       </ion-buttons>
-      <ion-title text-center>{{title}}</ion-title>
+      <ion-title text-center>Hey {{title}}</ion-title>
       <ion-buttons end>
-        <button padding ion-button icon-only>
+        <button padding ion-button icon-only (click)="share()">
           <ion-icon class="share-top-right" name="md-share"></ion-icon>
         </button>
       </ion-buttons>
     </ion-navbar>
 
-  <div margin-top>
-    <img class="profile-img" src="assets/img/Ellipse 84.png">
-    <img class="edit-img" src="assets/img/Group 1360.png">
+  <div margin-top (click)="openPicker()">
+    <ion-icon *ngIf="profileImgToShow == ''" class="profile-icon" name="md-person"></ion-icon>
+    <img *ngIf="profileImgToShow !== ''" class="profile-img" [src]="profileImgToShow">
+    <img class="edit-img" src="assets/img/edit.png">
   </div>
+  <!--<div margin-top (click)="openPicker()">
+    <img class="profile-img" [src]="profileImgToShow && profileImgToShow !==''?profileImgToShow:'assets/img/user-default.png'">
+    <img class="edit-img" src="assets/img/edit.png">
+  </div>-->
 
   <div padding margin>
     <ion-item no-padding>
       <ion-label class="medium-text">My Curl Pattern</ion-label>
-      <ion-select>
+      <ion-select [(ngModel)]="curlPattern">
         <ion-option value="Straight">Straight</ion-option>
         <ion-option value="Wavy">Wavy</ion-option>
         <ion-option value="Curl">Curl</ion-option>
@@ -32,7 +37,7 @@
 
     <ion-item margin-top no-padding>
       <ion-label class="medium-text">My Curl Width</ion-label>
-      <ion-select>
+      <ion-select [(ngModel)]="curlWidth">
         <ion-option value="Wide">Wide</ion-option>
         <ion-option value="Medium">Medium</ion-option>
         <ion-option value="Small">Small</ion-option>
@@ -42,7 +47,7 @@
 
     <ion-item margin-top no-padding>
       <ion-label class="medium-text">My Hair Porosity</ion-label>
-      <ion-select>
+      <ion-select [(ngModel)]="hairPorosity">
         <ion-option value="Low">Low</ion-option>
         <ion-option value="Normal">Normal</ion-option>
         <ion-option value="High">High</ion-option>
@@ -57,24 +62,37 @@
 
     <div *ngIf="showHairLength">
       <span class="bold-font big-text text-purple text-track">Track my hair length</span>
-      <span class="big-text text-user text-grey">(to be available for upgraded users only)</span>
+      <span *ngIf="!isPurchased" class="big-text text-user text-grey">(to be available for upgraded users only)</span>
 
       <ion-item margin-top no-padding>
-        <ion-label class="medium-text text-grey">Length in Back</ion-label>
-        <!--<ion-select>
-          <ion-option value="f" [disabled]="true">latest</ion-option>
-          <ion-option value="m" [disabled]="true">old</ion-option>
-        </ion-select>-->
-        <ion-icon item-right class="down text-grey" name="ios-arrow-down"></ion-icon>
+        <ion-label [ngClass]="!isPurchased?'text-grey':''" class="medium-text">Length in Back</ion-label>
+        <ion-select *ngIf="isPurchased" [(ngModel)]="lengthInBack">
+          <ion-option value="15cm">15cm</ion-option>
+          <ion-option value="20cm">20cm</ion-option>
+          <ion-option value="25cm">25cm</ion-option>
+          <ion-option value="30cm">30cm</ion-option>
+          <ion-option value="35cm">35cm</ion-option>
+          <ion-option value="40cm">40cm</ion-option>
+          <ion-option value="50cm">50cm</ion-option>
+          <ion-option value="55cm">55cm</ion-option>
+          <ion-option value="60cm">60cm</ion-option>
+          <ion-option value="65cm">65cm</ion-option>
+        </ion-select>
+        <ion-icon [ngClass]="!isPurchased?'text-grey':''" item-right class="down" name="ios-arrow-down"></ion-icon>
       </ion-item>
 
       <ion-item margin-top no-padding>
-        <ion-label class="medium-text text-grey">Length on Side</ion-label>
-        <!--<ion-select>
-          <ion-option value="f" [disabled]="true">latest</ion-option>
-          <ion-option value="m" [disabled]="true">old</ion-option>
-        </ion-select>-->
-        <ion-icon item-right class="down text-grey" name="ios-arrow-down"></ion-icon>
+        <ion-label class="medium-text" [ngClass]="!isPurchased?'text-grey':''">Length on Side</ion-label>
+        <ion-select *ngIf="isPurchased" [(ngModel)]="lengthInSide">
+          <ion-option value="15cm">15cm</ion-option>
+          <ion-option value="20cm">20cm</ion-option>
+          <ion-option value="25cm">25cm</ion-option>
+          <ion-option value="30cm">30cm</ion-option>
+          <ion-option value="35cm">35cm</ion-option>
+          <ion-option value="40cm">40cm</ion-option>
+          <ion-option value="45cm">45cm</ion-option>
+        </ion-select>
+        <ion-icon [ngClass]="!isPurchased?'text-grey':''" item-right class="down" name="ios-arrow-down"></ion-icon>
       </ion-item>
     </div>
   </div>
